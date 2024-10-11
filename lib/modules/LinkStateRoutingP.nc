@@ -107,25 +107,33 @@ implementation {
 		call LinkStateInfo.replace(b, lspa);
 	}
 
-	bool isUpdatedLSP(LSP lsp) {
-		uint8_t pos = getPos(lsp.id);
-		LSP comp = call LinkStateInfo.get(pos);
-		if (lsp.numNeighbors != comp.numNeighbors || memcmp(lsp.neighbors, comp.neighbors, lsp.numNeighbors)) == 1;
-		return TRUE;
-		else
-		return FALSE;
-	}
+	bbool isUpdatedLSP(LSP lsp) {
+    uint8_t pos = getPos(lsp.id);
+    LSP comp = call LinkStateInfo.get(pos);
+    
+    // Corrected if statement
+    if (lsp.numNeighbors != comp.numNeighbors || 
+        memcmp(lsp.neighbors, comp.neighbors, lsp.numNeighbors) != 0) {
+        return TRUE; // Return TRUE if updated
+    } else {
+        return FALSE; // Return FALSE otherwise
+    }
+}
 
-	void updateLSP(LSP lsp) {
-		call LinkStateInfo.replace(getPos(lsp.id), lsp);
-	}
+void updateLSP(LSP lsp) {
+    call LinkStateInfo.replace(getPos(lsp.id), lsp);
+}
 
-	bool isInLinkStateInfo(LSP lsp) {
-		for (uint16_t i = 0; i < call LinkStateInfo.size(); i++) {
-			if(call LinkStateInfo.get(i).id == lsp.id) return TRUE;
-		}
-		return FALSE;
-	}
+bool isInLinkStateInfo(LSP lsp) {
+    for (uint16_t i = 0; i < call LinkStateInfo.size(); i++) {
+        // Ensure 'i' is declared and used properly
+        if (call LinkStateInfo.get(i).id == lsp.id) {
+            return TRUE; // Found the LSP
+        }
+    }
+    return FALSE; // Not found
+}
+
 
 	void sortLinkStateInfo() {
 		uint8_t size = call LinkStateInfo.size();
