@@ -51,11 +51,7 @@ implementation {
     components new TimerMilliC() as RoutingTimer;
 	 Node.RoutingTimer -> RoutingTimer;
 	 
-	 components new TimerMilliC() as ClientWriteTimer;
-	 Node.ClientWriteTimer -> ClientWriteTimer;
 	 
-	 components new TimerMilliC() as ServerAcceptTimer;
-	 Node.ServerAcceptTimer -> ServerAcceptTimer;
 
 	 //components new ListC(socket_t, 10) as ClientConnections;
 	 //Node.ClientConnections -> ClientConnections;
