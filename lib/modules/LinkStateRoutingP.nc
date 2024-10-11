@@ -52,7 +52,7 @@ implementation {
 
 /////////print linksate info///////
 // Prints contents of LinkStateInfo
-	void printLinkStateInfo() {
+	command void printLinkStateInfo() {
 		uint8_t size = call LinkStateInfo.size();
 		uint8_t i, j;
 		LSP lsp;
@@ -68,7 +68,7 @@ implementation {
 			dbg(GENERAL_CHANNEL, "]\n");
 		}
 	}
-	
+
 	command void LinkStateRouting.print() {
 		//Print out all of the link state advertisements used to compute the routing table
 		printLinkStateInfo();
