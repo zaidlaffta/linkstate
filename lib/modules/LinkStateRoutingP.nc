@@ -458,20 +458,19 @@ implementation {
 		
 	}
 	
-	//Prints the contents of RoutingTable
+	// Prints the contents of RoutingTable
 	void printRoutingTable() {
-	uint8_t i, size = call RoutingTable.size();
-	RouteEntry entry;
-	uint32_t *keys = call RoutingTable.getKeys();
-	
-	dbg(GENERAL_CHANNEL, "\n\t\t\t    Routing Table for node %d\n", TOS_NODE_ID);
-	
-	for(i = 0; i < size; i++) {
-		entry = call RoutingTable.get(keys[i]);
-		dbg(GENERAL_CHANNEL, "\t\t\t\t(%d, %d, %d)\n", entry.dest, entry.cost, entry.next_hop);
+		uint8_t i, size = call RoutingTable.size();
+		RouteEntry entry;
+		uint32_t *keys = call RoutingTable.getKeys();
+		
+		dbg(GENERAL_CHANNEL, "\nRouting Table for node %d:\n", TOS_NODE_ID);
+		
+		for (i = 0; i < size; i++) {
+			entry = call RoutingTable.get(keys[i]);
+			dbg(GENERAL_CHANNEL, "\tDestination: %d, Cost: %d, Next Hop: %d\n", entry.dest, entry.cost, entry.next_hop);
+		}
 	}
-}
-
 	
 	//Decrements the age field of all LSP entries in LinkStateInfo and removes if age reaches 0
 	void updateAges() {
@@ -487,6 +486,24 @@ implementation {
 				lsp.age--;
 				call LinkStateInfo.replace(i, lsp);
 			}
+		}
+	}
+/////////print linksate info///////
+// Prints contents of LinkStateInfo
+	void printLinkStateInfo() {
+		uint8_t size = call LinkStateInfo.size();
+		uint8_t i, j;
+		LSP lsp;
+		
+		dbg(GENERAL_CHANNEL, "Node %d Link State Info (%d entries):\n", TOS_NODE_ID, size);
+		
+		for (i = 0; i < size; i++) {
+			lsp = call LinkStateInfo.get(i);
+			dbg(GENERAL_CHANNEL, "\tNode %d neighbors: [ ", lsp.id);
+			for (j = 0; j < lsp.numNeighbors; j++) {
+				dbg(GENERAL_CHANNEL, "%d ", lsp.neighbors[j]);
+			}
+			dbg(GENERAL_CHANNEL, "]\n");
 		}
 	}
 
