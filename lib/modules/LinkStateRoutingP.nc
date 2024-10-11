@@ -42,8 +42,8 @@ implementation {
 	void updateRoutingTable();
 	void printRoutingTable();
 	void updateAges();
-	void printLinkStateInfo();
-	void printRoutingTable();
+	
+	
 	
 	command void LinkStateRouting.run() {
 		floodLSP();
@@ -219,23 +219,7 @@ implementation {
 		}
 	}
 	
-	//Prints contents of LinkStateInfo
-	void printLinkStateInfo() {
-		uint8_t size = call LinkStateInfo.size();
-		uint8_t i, j;
-		LSP lsp;
-		
-		dbg(FLOODING_CHANNEL, "Node %d Link State Info(%d entries):\n", TOS_NODE_ID, size);
-		
-		for(i = 0; i < size; i++) {
-			lsp = call LinkStateInfo.get(i);
-			printf("\t\t\t\tNode %2d sent [ ", lsp.id);
-			for(j = 0; j < lsp.numNeighbors; j++) {
-				printf("%2d ", lsp.neighbors[j]);
-			}
-			printf("]\n");
-		}
-	}
+	
 	
 	//Prints contents of Tentative
 	void printTentative() {
