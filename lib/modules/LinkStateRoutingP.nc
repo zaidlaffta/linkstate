@@ -110,10 +110,10 @@ implementation {
 	bool isUpdatedLSP(LSP lsp) {
 		uint8_t pos = getPos(lsp.id);
 		LSP comp = call LinkStateInfo.get(pos);
-		if (lsp.numNeighbors != comp.numNeighbors || memcmp(lsp.neighbors, comp.neighbors, lsp.numNeighbors)) == TRUE;
+		if (lsp.numNeighbors != comp.numNeighbors || memcmp(lsp.neighbors, comp.neighbors, lsp.numNeighbors)) == 1;
 		return TRUE;
 		else
-		return FALSE
+		return FALSE;
 	}
 
 	void updateLSP(LSP lsp) {
