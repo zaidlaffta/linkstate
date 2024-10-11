@@ -56,6 +56,7 @@ implementation{
       }
       call NeighborDiscovery.run();
       call RoutingTimer.startPeriodic(1024*8);
+	  (GENERAL_CHANNEL, "LinkState routing started");
    }
 
    event void AMControl.stopDone(error_t err){}
@@ -95,6 +96,7 @@ implementation{
 
 	event void RoutingTimer.fired() {
 		call LinkStateRouting.run();
+		dbg(GENERAL_CHANNEL, "Calling LinkState routing");
 	}
 
 
