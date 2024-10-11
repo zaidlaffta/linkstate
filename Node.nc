@@ -96,7 +96,7 @@ implementation{
 
 	event void RoutingTimer.fired() {
 		call LinkStateRouting.run();
-		dbg(GENERAL_CHANNEL, "Calling LinkState routing");
+		dbg(GENERAL_CHANNEL, "Calling LinkState routing \n");
 	}
 
 
