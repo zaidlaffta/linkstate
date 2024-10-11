@@ -50,6 +50,25 @@ implementation {
 		call RoutingTimer.startOneShot(1024*8);
 	}
 
+/////////print linksate info///////
+// Prints contents of LinkStateInfo
+	void printLinkStateInfo() {
+		uint8_t size = call LinkStateInfo.size();
+		uint8_t i, j;
+		LSP lsp;
+		
+		dbg(GENERAL_CHANNEL, "Node %d Link State Info (%d entries):\n", TOS_NODE_ID, size);
+		
+		for (i = 0; i < size; i++) {
+			lsp = call LinkStateInfo.get(i);
+			dbg(GENERAL_CHANNEL, "\tNode %d neighbors: [ ", lsp.id);
+			for (j = 0; j < lsp.numNeighbors; j++) {
+				dbg(GENERAL_CHANNEL, "%d ", lsp.neighbors[j]);
+			}
+			dbg(GENERAL_CHANNEL, "]\n");
+		}
+	}
+	
 	command void LinkStateRouting.print() {
 		//Print out all of the link state advertisements used to compute the routing table
 		printLinkStateInfo();
@@ -474,24 +493,7 @@ implementation {
 			}
 		}
 	}
-/////////print linksate info///////
-// Prints contents of LinkStateInfo
-	void printLinkStateInfo() {
-		uint8_t size = call LinkStateInfo.size();
-		uint8_t i, j;
-		LSP lsp;
-		
-		dbg(GENERAL_CHANNEL, "Node %d Link State Info (%d entries):\n", TOS_NODE_ID, size);
-		
-		for (i = 0; i < size; i++) {
-			lsp = call LinkStateInfo.get(i);
-			dbg(GENERAL_CHANNEL, "\tNode %d neighbors: [ ", lsp.id);
-			for (j = 0; j < lsp.numNeighbors; j++) {
-				dbg(GENERAL_CHANNEL, "%d ", lsp.neighbors[j]);
-			}
-			dbg(GENERAL_CHANNEL, "]\n");
-		}
-	}
+
 
 	void makePack(pack *Package, uint16_t src, uint16_t dest, uint16_t TTL, uint16_t protocol, uint16_t seq, uint8_t* payload, uint8_t length){
       Package->src = src;
