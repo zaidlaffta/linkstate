@@ -122,42 +122,16 @@ implementation{
    event void CommandHandler.printLinkState(){
    	call LinkStateRouting.print();
    }
+   event void CommandHandler.printDistanceVector() {}
 
-   event void CommandHandler.printDistanceVector(){}
+   event void CommandHandler.setTestServer() {}
 
-   event void CommandHandler.setTestServer(uint8_t port){
-   }
+   event void CommandHandler.setTestClient() {}
 
-   event void CommandHandler.setTestClient(uint8_t dest, uint8_t srcPort, uint8_t destPort, uint16_t transfer){
-   	
-   }
+   event void CommandHandler.setAppServer() {}
 
-	event void CommandHandler.closeTestClient(uint8_t dest, uint8_t srcPort, uint8_t destPort) {
-		
-	}
-
-   event void CommandHandler.setAppServer(uint8_t port) {
-   	printf("Intiating Chat Server at address %d, port %d\n", TOS_NODE_ID, port);
-   	call Application.startAppServer(port);
-   }
-
-   event void CommandHandler.setAppClient(uint8_t port, uint8_t* username){
-   	
-   }
-   
-   event void CommandHandler.broadcastAppClient(uint8_t* message) {
-   	uint8_t i;
-   	printf("Broadcasting message: \n");
-   	call Application.broadcast(message);
-   }
-
-	event void CommandHandler.unicastAppClient(uint8_t* username, uint8_t* message) {
-		call Application.unicast(username, message);
-	}
-	
-	event void CommandHandler.listAppUsers() { 
-		call Application.listUsers();
-	}
+   event void CommandHandler.setAppClient() {}
+  
 
    void makePack(pack *Package, uint16_t src, uint16_t dest, uint16_t TTL, uint16_t protocol, uint16_t seq, uint8_t* payload, uint8_t length){
       Package->src = src;
