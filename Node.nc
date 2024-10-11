@@ -83,9 +83,7 @@ implementation{
 		      		dbg(GENERAL_CHANNEL, "Package recieved\n");
 	         		dbg(GENERAL_CHANNEL, "Package Payload: %s\n", myMsg->payload);
 		      	}
-		      	if(myMsg->protocol == PROTOCOL_TCP) {
-		      		call Application.receive(myMsg);
-		      	}
+		      
 		      }
 		   }
          
