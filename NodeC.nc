@@ -46,12 +46,7 @@ implementation {
     components LinkStateRoutingC as LinkStateRouting;
     Node.LinkStateRouting -> LinkStateRouting;
     
-    components TransportC as Transport;
-    Node.Transport -> Transport;
-    
-    components ApplicationC as Application;
-    Node.Application -> Application;
-    
+       
     //Wire the Timer interface
     components new TimerMilliC() as RoutingTimer;
 	 Node.RoutingTimer -> RoutingTimer;
@@ -62,9 +57,9 @@ implementation {
 	 components new TimerMilliC() as ServerAcceptTimer;
 	 Node.ServerAcceptTimer -> ServerAcceptTimer;
 
-	 components new ListC(socket_t, 10) as ClientConnections;
-	 Node.ClientConnections -> ClientConnections;
+	 //components new ListC(socket_t, 10) as ClientConnections;
+	 //Node.ClientConnections -> ClientConnections;
 	 
-	 components new ListC(socket_t, 10) as ServerConnections;
-	 Node.ServerConnections -> ServerConnections;
+	 //components new ListC(socket_t, 10) as ServerConnections;
+	 //Node.ServerConnections -> ServerConnections;
 }

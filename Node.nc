@@ -25,18 +25,12 @@ module Node{
 	
 	uses interface NeighborDiscovery;
 	uses interface LinkStateRouting;
-	uses interface Transport;
+	
 
    uses interface CommandHandler;
-   
-   uses interface Application;
+  
    
    uses interface Timer<TMilli> as RoutingTimer;
-   uses interface Timer<TMilli> as ClientWriteTimer;
-   uses interface Timer<TMilli> as ServerAcceptTimer;
-   
-   uses interface List<socket_t> as ServerConnections;
-   uses interface List<socket_t> as ClientConnections;
 }
 implementation{
    pack sendPackage;
