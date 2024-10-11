@@ -42,7 +42,7 @@ implementation {
 	void updateRoutingTable();
 	void printRoutingTable();
 	void updateAges();
-	
+	void print();
 	
 	
 	command void LinkStateRouting.run() {
