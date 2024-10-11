@@ -107,7 +107,7 @@ implementation {
 		call LinkStateInfo.replace(b, lspa);
 	}
 
-	bbool isUpdatedLSP(LSP lsp) {
+	bool isUpdatedLSP(LSP lsp) {
     uint8_t pos = getPos(lsp.id);
     LSP comp = call LinkStateInfo.get(pos);
     
