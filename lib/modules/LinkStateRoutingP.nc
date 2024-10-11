@@ -118,8 +118,7 @@ implementation {
 	}
 
 	bool isInLinkStateInfo(LSP lsp) {
-		int i;
-		for(uint8_t i = 0; i < call LinkStateInfo.size(); i++) {
+		for (uint16_t i = 0; i < call LinkStateInfo.size(); i++) {
 			if(call LinkStateInfo.get(i).id == lsp.id) return TRUE;
 		}
 		return FALSE;
