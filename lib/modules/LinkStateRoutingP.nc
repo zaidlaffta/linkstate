@@ -42,6 +42,8 @@ implementation {
 	void updateRoutingTable();
 	void printRoutingTable();
 	void updateAges();
+	void printLinkStateInfo();
+	void printRoutingTable();
 	
 	command void LinkStateRouting.run() {
 		floodLSP();
