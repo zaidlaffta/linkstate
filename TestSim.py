@@ -171,19 +171,19 @@ def main():
     s.runTime(100);
     
     s.cmdAppClient(2, "hello bmccarthy 7");
-    s.runTime(200);
+    s.runTime(20);
     s.cmdAppClient(5, "hello ayadav 2");
-    s.runTime(300);
+    s.runTime(30);
     s.cmdAppClient(3, "hello acerpa 99");
-    s.runTime(300);
+    s.runTime(30);
     s.cmdAppClient(2, "whisper bmccarthy2 Hi!");
-    s.runTime(300);
+    s.runTime(30);
     s.cmdAppClient(2, "msg Hello World!!!!");
-    s.runTime(300);
+    s.runTime(30);
     s.cmdAppClient(5, "whisper bmccarthy Yo!!!");
-    s.runTime(300);
+    s.runTime(30);
     s.cmdAppClient(5, "listusr");
-    s.runTime(2000);
+    s.runTime(200);
 
 
 if __name__ == '__main__':
