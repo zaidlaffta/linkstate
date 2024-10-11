@@ -5,6 +5,8 @@ implementation {
 	//Export implementation of NeighborDiscovery[run() & print()] to NeighborDiscoveryP
 	components NeighborDiscoveryP;
 	NeighborDiscovery = NeighborDiscoveryP.NeighborDiscovery;
+	omponents LinkStateRoutingP;
+    LinkStateRouting = LinkStateRoutingP.LinkStateRouting;
 	
 	//Wire the SimpleSend interface used by NeighborDiscoveryP to the one provided by SimpleSendC()
 	components new SimpleSendC(AM_PACK) as Sender;
